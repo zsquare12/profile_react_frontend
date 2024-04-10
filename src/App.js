@@ -10,27 +10,24 @@ import {
 
 import Header from './components/header';
 import Footer from './components/footer';
-import Body from './components/body';
+import Home from './components/Home';
+import Login from './components/Login';
+import Register from './components/Register';
 
 function App() {
-  return (
+  return (<>
     <Router>
-      <nav>
-        <ul>
-          <li><Link to='/'>Home</Link></li>
-          <li><Link to='/header'>Header</Link></li>
-          <li><Link to='/footer'>Footer</Link></li>
-        </ul>
-      </nav>
-
-
+      <Header />
+      
       <Routes>
-        <Route path='/' exact Component={Body} />
-        <Route path='/header' exact Component={Header} />
-        <Route path='/footer' exact Component={Footer} />
+        <Route path='/' exact Component={Home} />
+        <Route path='/login' exact Component={Login} />
+        <Route path='/register' exact Component={Register} />
       </Routes>
+
+    <Footer />
     </Router>
-  );
+  </>);
 }
 
 export default App;
