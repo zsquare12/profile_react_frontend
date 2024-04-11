@@ -1,41 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
+import useFetchData from './useFetchData';
 
 function Home() {
-    const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const apiUrl = 'http://localhost:8000/api/task/';
+    const { data, loading, error, isLoggedIn } = useFetchData(apiUrl);
 
-    useEffect(() => {
-        //Define the Django API endpoint
-        const apiUrl = 'http://localhost:8000/api/profiles/'
+    let dataElements = null;
 
-        //fetch data from Django API using axios
-        axios.get(apiUrl).then(
-            (response) => {
-                setData(response.data);
-                setLoading(false);
-            }
-        ).catch(
-            (error) => {
-                setError(error);
-                setLoading(false);
-            }
-        )
+    if (loading) {
+        return <p>Loading...</p>;
+    }
 
-    }, []);
+    if (error) {
+        return <p>Error: {error.message}</p>;
+    }
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error: {error.message}</p>
+    if (isLoggedIn) {
+        dataElements = data.map((task, index) => (
+            <li key={index}>{task.title}</li>
+        ));
+    } else {
+        dataElements = <li>"Please LoginIn first"</li>;
+    }
 
-    const data_element = data.map((user) => <li>{ user.username }</li>)
     return (
         <div>
+            <h1>Tasks</h1>
             <ul>
-                {data_element}
+                {dataElements}
             </ul>
         </div>
-    )
+    );
 }
 
 export default Home;

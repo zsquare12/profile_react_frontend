@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 import {
@@ -14,20 +13,32 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
 
-function App() {
-  return (<>
-    <Router>
-      <Header />
-      
-      <Routes>
-        <Route path='/' exact Component={Home} />
-        <Route path='/login' exact Component={Login} />
-        <Route path='/register' exact Component={Register} />
-      </Routes>
+import './App.css';  // Import the external CSS file
 
-    <Footer />
-    </Router>
-  </>);
+function App() {
+  return (
+    <>
+      <Router>
+        <div className="container">
+          <header>
+            <Header />
+          </header>
+
+          <main>
+            <Routes>
+              <Route path="/" exact Component={Home} />
+              <Route path="/login" exact Component={Login} />
+              <Route path="/register" exact Component={Register} />
+            </Routes>
+          </main>
+
+          <footer>
+            <Footer />
+          </footer>
+        </div>
+      </Router>
+    </>
+  );
 }
 
 export default App;
