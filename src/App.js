@@ -7,11 +7,12 @@ import {
   Link
 } from 'react-router-dom';
 
-import Header from './components/header';
-import Footer from './components/footer';
+import Header from './components/Shared/Header'
 import Home from './components/Home';
 import Login from './components/Login';
+import SignIn from './components/Login/SignIn'
 import Register from './components/Register';
+import SignUp from './components/Login/SignUp'
 
 import './App.css';  // Import the external CSS file
 
@@ -27,14 +28,10 @@ function App() {
           <main>
             <Routes>
               <Route path="/" exact Component={Home} />
-              <Route path="/login" exact Component={Login} />
-              <Route path="/register" exact Component={Register} />
+              <Route path="/signin" exact Component={SignIn} />
+              <Route path="/signup" exact Component={SignUp} />
             </Routes>
           </main>
-
-          <footer>
-            <Footer />
-          </footer>
         </div>
       </Router>
     </>

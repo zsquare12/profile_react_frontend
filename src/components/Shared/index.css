@@ -1,0 +1,16 @@
+
+nav {
+	display: flex;
+	justify-content: space-between;
+	padding: 5px;
+	background-color: gray;
+}
+
+nav>div>ul {
+	display: flex;
+	list-style-type: none;
+}
+
+nav>div>ul>li {
+	padding: 5px;
+}
