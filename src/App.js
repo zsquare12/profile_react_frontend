@@ -8,10 +8,9 @@ import {
 } from 'react-router-dom';
 
 import Header from './components/Shared/Header'
-import Home from './components/Home';
-import Login from './components/Login';
+// import Home from './components/Home';
+import Home from './components/Task/Home'
 import SignIn from './components/Login/SignIn'
-import Register from './components/Register';
 import SignUp from './components/Login/SignUp'
 
 import './App.css';  // Import the external CSS file

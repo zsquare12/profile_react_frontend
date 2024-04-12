@@ -1,17 +1,38 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 
 function SignUp() {
 	const [username, setUsername] = useState('');
 	const [useremail, setUseremail] = useState('')
 	const [password, setPassword] = useState('');
 	const [repassword, setRepassword] = useState('');
-	const [message, setMessage] = useState('msg');
+	const [message, setMessage] = useState('');
+
+	useEffect(() => {
+		// check if user is logged in
+		const token = localStorage.getItem('token');
+		if (token) {
+			window.location.href = '/'; //redirect to root URL
+		}
+	})
 
 	const handleLogin = () => {
-		if (username === 'admin' && password === 'password') {
-			setMessage('Login successful!');
+		const apiUrl = 'http://localhost:8000/api/profiles/';
+		if (password == repassword) {
+			axios.post(apiUrl, {
+				username: username,
+				email: useremail,
+				password: password
+			}).then(
+				Response => {
+					setMessage('Registration Successful :) ')
+					window.location.href = '/signin';
+				}
+			).catch(error => {
+				setMessage(String(error));
+			})
 		} else {
-			setMessage('Invalid Username and password')
+			setMessage('passwords not match');
 		}
 	};
 
@@ -36,9 +57,9 @@ function SignUp() {
 
 				<label>password</label>
 				<input
-					type="text"
-					value={username}
-					onChange={(e) => setUsername(e.target.value)}
+					type="password"
+					value={password}
+					onChange={(e) => setPassword(e.target.value)}
 				/>
 
 				<label>re-password</label>

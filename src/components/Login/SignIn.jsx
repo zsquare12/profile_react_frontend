@@ -4,7 +4,7 @@ import axios from 'axios';
 function SignIn() {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
-	const [message, setMessage] = useState('msg');
+	const [message, setMessage] = useState('');
 
 	useEffect(() => {
 		// check if user is logged in
@@ -17,7 +17,10 @@ function SignIn() {
 	const handleLogin = () => {
 		const apiUrl = 'http://localhost:8000/api/login/';
 
-		axios.post(apiUrl, { username, password }).then(
+		axios.post(apiUrl, {
+			username,
+			password
+		}).then(
 			response => {
 				const token = response.data.token;
 				localStorage.setItem('token', token);
@@ -25,7 +28,7 @@ function SignIn() {
 				window.location.reload();
 			}
 		).catch(error => {
-			setMessage("Invalid username and password")
+			setMessage("Failed : please write currect credentials")
 		})
 
 	};
