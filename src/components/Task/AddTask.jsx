@@ -1,10 +1,15 @@
-import { useState } from 'react';
+import {
+	useState,
+	useContext,
+ } from 'react';
 
 import axios from 'axios';
+import TodoContext from './TodoContext';
 
-function AddTask() {
+function AddTask(props) {
 	const [taskname, setTaskname] = useState('');
 	const [msg, setMsg] = useState('');
+	const {setTododata, tododata} = useContext(TodoContext)
 
 	const addTaskHandler = () => {
 		const apiUrl = "http://localhost:8000/api/task/";
@@ -19,7 +24,14 @@ function AddTask() {
 			Response => {
 				setMsg('task added :)');
 				setTaskname('');
-				window.location.reload();
+				setTododata(tododata => [...tododata, {
+					"id": 89,
+					"user": 12,
+					"title": taskname,
+					"description": null,
+					"is_completed": false
+				}])
+
 			}
 		).catch(error => {
 			setMsg("Failed due to some Error: Try Again!");

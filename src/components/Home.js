@@ -2,6 +2,9 @@ import React from 'react';
 import useFetchData from './useFetchData';
 
 function Home() {
+
+    const [taskadded, setTaskadded] = React.useState(true)
+
     const apiUrl = 'http://localhost:8000/api/task/';
     const { data, loading, error, isLoggedIn } = useFetchData(apiUrl);
 
