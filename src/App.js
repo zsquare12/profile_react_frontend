@@ -13,13 +13,13 @@ import Home from './components/Task/Home'
 import SignIn from './components/Login/SignIn'
 import SignUp from './components/Login/SignUp'
 
-import './App.css';  // Import the external CSS file
+// import './App.css';  // Import the external CSS file
 
 function App() {
   return (
     <>
       <Router>
-        <div className="container">
+        <div className="cont">
           <header>
             <Header />
           </header>

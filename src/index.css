@@ -1,13 +1,140 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  /* border: thin solid red; */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-color: #181717;
+  color: white;
+}
+
+.cont {
+  margin: 0px;
+  width: 100%;
+}
+
+
+/*_____HEADER STYLES____________*/
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  /* border: thin solid; */
+}
+
+nav>div>ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+}
+
+nav>div>ul>li {
+  margin: 5px;
+}
+
+.sharklogo {
+  height: 50px;
+}
+
+/*__________add Task Area ___________*/
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1000px;
+  margin: auto;
+  padding: 10px;
+  /* border: thin solid red; */
+}
+
+.add_task {
+  /* border: thin solid red; */
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #2E2E2E;
+  height: 50px;
+  border-radius: 10px;
+}
+
+.add_task>input {
+  background-color: inherit;
+  font-size: 20px;
+  border-radius: 20px;
+  padding: 0px 10px;
+  width: 100%;
+  border: none;
+  color: white;
+}
+
+.add_task input:focus {
+  outline: none;
+}
+
+.add_task>.addbtn {
+  background-color: #181717;
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-size: 20px;
+  margin: 5px;
+  color: white;
+}
+
+.add_task>.addbtn:hover {
+  cursor: pointer;
+  border: thin solid white;
+}
+
+
+/*____________Task List styles _____________*/
+
+.task_list {
+  list-style-type: none;
+  width: 100%;
+  padding: 0px;
+}
+.task_list>li{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 5px;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 20px;
+}
+.task_list>li:hover{
+  border: thin solid wheat;
+}
+.taskname {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0px 5px;
+  height: 100%;
+  /* border: thin solid red; */
+}
+
+/*_______________Login form ______________*/
+.login{
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  /* border: thin solid red; */
+}
+
+.login>div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.login>div>input {
+  margin-bottom: 10px;
 }

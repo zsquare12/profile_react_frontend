@@ -6,7 +6,7 @@ import {
 
 import useFetchData from '../useFetchData';
 
-import './index.css'
+import sharToDoLogo from '../../static/sharktodo_logo.svg'
 
 function Header() {
 	//this is going to be our header of all the pages mainly contain nav-bar
@@ -24,7 +24,7 @@ function Header() {
 		link_to_show = (
 			<>
 				<li>Welcome {data[0].username} !</li>
-				<li><button onClick={logoutHandle}>Logout</button></li>
+				<li><button onClick={logoutHandle} className='btn btn-primary'>Logout</button></li>
 			</>
 		)
 	} else {
@@ -42,6 +42,7 @@ function Header() {
 				<div className="nav_left">
 					<ul>
 						<li>
+							<img className='sharklogo' src={sharToDoLogo} alt="" />
 							<Link to='/'>SharkToDo</Link>
 						</li>
 					</ul>

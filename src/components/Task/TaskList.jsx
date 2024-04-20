@@ -7,12 +7,16 @@ import {
 import useFetchData from "../useFetchData";
 import TodoContext from "./TodoContext";
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt, faCheckCircle, faCircle } from '@fortawesome/free-solid-svg-icons';
+
+
 
 function TaskList(props) {
 
 	const apiUrl = 'http://localhost:8000/api/task/';
 	const { data, loading, error, isLoggedIn } = useFetchData(apiUrl);
-	const {tododata, setTododata} = useContext(TodoContext)
+	const { tododata, setTododata } = useContext(TodoContext)
 	// console.log(tododata)
 	let dataElements = null;
 
@@ -25,11 +29,11 @@ function TaskList(props) {
 		const apiUrl = "http://localhost:8000/api/task/"
 		const token = localStorage.getItem('token');
 		const updateJson = {
-			is_completed : !tododata[index].is_completed
+			is_completed: !tododata[index].is_completed
 		};
 
 		//send the PATCH request using Axios
-		axios.patch(`${apiUrl}${tododata[index].id}/`,updateJson, {
+		axios.patch(`${apiUrl}${tododata[index].id}/`, updateJson, {
 			headers: {
 				'Authorization': `Token ${token}`,
 			},
@@ -78,13 +82,21 @@ function TaskList(props) {
 	if (isLoggedIn) {
 		dataElements = tododata.map((task, index) => (
 			<li key={index}>
-				<button
+				<div
 					onClick={() => hadleToggleCompletion(index)}
-				>done/undone</button>
-				<p>{task.id} {task.title} {String(task.is_completed)}</p>
-				<button
-					onClick={()=> handleDeleteTask(index)}
-				>delete</button>
+					className="btn"
+				>{
+						tododata[index].is_completed ?
+							<FontAwesomeIcon icon={faCheckCircle} color='green' size="2x"/> :
+							<FontAwesomeIcon icon={faCircle} color='grey' size="2x" />
+					}
+				</div>
+				<div className="taskname"><p>{task.title}</p></div>
+				<div
+					onClick={() => handleDeleteTask(index)}
+					className="btn"
+				><FontAwesomeIcon icon={faTrashAlt} color='red' size="2x"/>
+				</div>
 			</li>
 		));
 	}

@@ -1,13 +1,2 @@
 /* App.css */
-* {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-  /* border: thin solid red; */
-}
 
-main {
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-}

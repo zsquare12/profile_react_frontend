@@ -5,7 +5,6 @@ import {
 
 import AddTask from "./AddTask";
 import TaskList from "./TaskList";
-import './index.css'
 import useFetchData from '../useFetchData';
 import TodoContext from './TodoContext';
 
@@ -25,6 +24,11 @@ function Home() {
 			setTododata(data);
 		}
 	}, [data]);
+
+	useEffect(() => {
+		//re-render on tododata change
+	}, [tododata]);
+
 
 	useEffect(() => {
 		//check if user is logged in 

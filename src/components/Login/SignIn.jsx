@@ -34,22 +34,24 @@ function SignIn() {
 	};
 
 	return (
-		<div>
-			<h1>Login</h1>
-			<div style={{ display: 'flex', flexDirection: 'column', width: '500px', }}>
+		<div className='login'>
+			<h1>SignIn</h1>
+			<div>
 				<label>Username</label>
 				<input
 					type="text"
 					value={username}
 					onChange={(e) => setUsername(e.target.value)}
+					className='form-control'
 				/>
 				<label>password</label>
 				<input
 					type="password"
 					value={password}
 					onChange={(e) => setPassword(e.target.value)}
+					className='form-control'
 				/>
-				<button onClick={handleLogin}>Submit</button>
+				<button onClick={handleLogin} className='btn btn-primary'>Submit</button>
 				<p>{message}</p>
 			</div>
 		</div>

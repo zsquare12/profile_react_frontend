@@ -1,15 +1,16 @@
 import {
 	useState,
 	useContext,
- } from 'react';
+} from 'react';
 
 import axios from 'axios';
 import TodoContext from './TodoContext';
+import useFetchData from '../useFetchData';
 
 function AddTask(props) {
 	const [taskname, setTaskname] = useState('');
 	const [msg, setMsg] = useState('');
-	const {setTododata, tododata} = useContext(TodoContext)
+	const { setTododata, tododata } = useContext(TodoContext)
 
 	const addTaskHandler = () => {
 		const apiUrl = "http://localhost:8000/api/task/";
@@ -24,13 +25,13 @@ function AddTask(props) {
 			Response => {
 				setMsg('task added :)');
 				setTaskname('');
-				setTododata(tododata => [...tododata, {
-					"id": 89,
-					"user": 12,
-					"title": taskname,
-					"description": null,
-					"is_completed": false
-				}])
+				axios.get(apiUrl, {
+					headers: {
+						'Authorization': `Token ${token}`,
+					},
+				}).then((response) => {
+					setTododata(response.data)
+				})
 
 			}
 		).catch(error => {
@@ -49,8 +50,8 @@ function AddTask(props) {
 					value={taskname}
 					onChange={(e) => setTaskname(e.target.value)}
 				/>
-				<button onClick={addTaskHandler}>Add</button>
-				<p>{msg}</p>
+				<button className='addbtn' onClick={addTaskHandler}>add</button>
+				{/* <p>{msg}</p> */}
 			</div>
 		</>
 	)
