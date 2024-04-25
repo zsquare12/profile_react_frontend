@@ -8,6 +8,7 @@
 body {
   background-color: #181717;
   color: white;
+  /* width: 100vh; */
 }
 
 .cont {
@@ -24,12 +25,19 @@ nav {
   height: 50px;
   /* border: thin solid; */
 }
+nav>div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 nav>div>ul {
   display: flex;
   justify-content: space-around;
   align-items: center;
   list-style-type: none;
+  margin: 0px;
+  padding: 0px;
 }
 
 nav>div>ul>li {
@@ -37,7 +45,7 @@ nav>div>ul>li {
 }
 
 .sharklogo {
-  height: 50px;
+  height: 30px;
 }
 
 /*__________add Task Area ___________*/
@@ -104,12 +112,13 @@ nav>div>ul>li {
   justify-content: space-between;
   align-items: center;
   margin: 5px 5px;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 5px;
   font-size: 20px;
 }
 .task_list>li:hover{
-  border: thin solid wheat;
+  /* border: thin solid wheat; */
+  background-color: #2d2b2b;
 }
 .taskname {
   width: 100%;
@@ -126,7 +135,8 @@ nav>div>ul>li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 500px;
+  max-width: 500px;
+  padding: 10px;
   /* border: thin solid red; */
 }
 

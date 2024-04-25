@@ -23,7 +23,7 @@ function Header() {
 	if (isLoggedIn) {
 		link_to_show = (
 			<>
-				<li>Welcome {data[0].username} !</li>
+				<li>Hi {data[0].username} !</li>
 				<li><button onClick={logoutHandle} className='btn btn-primary'>Logout</button></li>
 			</>
 		)
