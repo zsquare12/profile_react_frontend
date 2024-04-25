@@ -15,7 +15,8 @@ function SignIn() {
 	}, []);
 
 	const handleLogin = () => {
-		const apiUrl = 'http://localhost:8000/api/login/';
+		const apiUrl = 'https://sharktodo.smileplease.life/api/login/';
+		// const apiUrl = 'https://sharktodo.smileplease.life/api/login/';
 
 		axios.post(apiUrl, {
 			username,
@@ -28,6 +29,7 @@ function SignIn() {
 				window.location.reload();
 			}
 		).catch(error => {
+			console.log(error);
 			setMessage("Failed : please write currect credentials")
 		})
 

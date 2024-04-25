@@ -14,7 +14,7 @@ import { faTrashAlt, faCheckCircle, faCircle } from '@fortawesome/free-solid-svg
 
 function TaskList(props) {
 
-	const apiUrl = 'http://localhost:8000/api/task/';
+	const apiUrl = 'https://sharktodo.smileplease.life/api/task/';
 	const { data, loading, error, isLoggedIn } = useFetchData(apiUrl);
 	const { tododata, setTododata } = useContext(TodoContext)
 	// console.log(tododata)
@@ -26,7 +26,7 @@ function TaskList(props) {
 	}, [tododata]);
 
 	const hadleToggleCompletion = (index) => {
-		const apiUrl = "http://localhost:8000/api/task/"
+		const apiUrl = "https://sharktodo.smileplease.life/api/task/"
 		const token = localStorage.getItem('token');
 		const updateJson = {
 			is_completed: !tododata[index].is_completed
@@ -52,7 +52,7 @@ function TaskList(props) {
 	};
 
 	const handleDeleteTask = (index) => {
-		const apiUrl = "http://localhost:8000/api/task/"
+		const apiUrl = "https://sharktodo.smileplease.life/api/task/"
 		const token = localStorage.getItem('token');
 
 		//send delete request using axios

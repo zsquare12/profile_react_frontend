@@ -17,7 +17,7 @@ function SignUp() {
 	})
 
 	const handleLogin = () => {
-		const apiUrl = 'http://localhost:8000/api/profiles/';
+		const apiUrl = 'https://sharktodo.smileplease.life/api/profiles/';
 		if (password == repassword) {
 			axios.post(apiUrl, {
 				username: username,

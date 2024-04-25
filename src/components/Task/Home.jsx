@@ -10,7 +10,7 @@ import TodoContext from './TodoContext';
 
 function Home() {
 
-	const apiUrl = 'http://localhost:8000/api/task/';
+	const apiUrl = 'https://sharktodo.smileplease.life/api/task/';
 	const { data, loading, error, isLoggedIn } = useFetchData(apiUrl);
 
 	const [tododata, setTododata] = useState([])

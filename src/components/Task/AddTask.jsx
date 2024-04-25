@@ -13,7 +13,7 @@ function AddTask(props) {
 	const { setTododata, tododata } = useContext(TodoContext)
 
 	const addTaskHandler = () => {
-		const apiUrl = "http://localhost:8000/api/task/";
+		const apiUrl = "https://sharktodo.smileplease.life/api/task/";
 		const token = localStorage.getItem('token');
 		axios.post(apiUrl, {
 			title: taskname,

@@ -8,7 +8,7 @@ function TaskList(props) {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 
 	useEffect(() => {
-		const apiUrl = 'http://localhost:8000/api/task/';
+		const apiUrl = 'https://sharktodo.smileplease.life/api/task/';
 
 		const fetchData = async () => {
 			try {

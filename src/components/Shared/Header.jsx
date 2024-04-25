@@ -10,7 +10,7 @@ import sharToDoLogo from '../../static/sharktodo_logo.svg'
 
 function Header() {
 	//this is going to be our header of all the pages mainly contain nav-bar
-	const apiUrl = 'http://localhost:8000/api/profiles'
+	const apiUrl = 'https://sharktodo.smileplease.life/api/profiles'
 	const { data, loading, error, isLoggedIn } = useFetchData(apiUrl);
 
 	const logoutHandle = () => {
