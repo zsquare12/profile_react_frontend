@@ -6,7 +6,7 @@ import {
 
 import useFetchData from '../useFetchData';
 
-import sharToDoLogo from '../../static/sharktodo_logo.svg'
+import sharToDoLogo from '../../static/logo192.png'
 
 function Header() {
 	//this is going to be our header of all the pages mainly contain nav-bar
