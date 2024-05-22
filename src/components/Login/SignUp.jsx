@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import EmailVerifyOTP from './EmailVerifyOTP'
 
 function SignUp() {
 	const [username, setUsername] = useState('');
@@ -7,14 +8,27 @@ function SignUp() {
 	const [password, setPassword] = useState('');
 	const [repassword, setRepassword] = useState('');
 	const [message, setMessage] = useState('');
+	const [showOtpPage, setShowOtpPage] = useState(false);
 
-	useEffect(() => {
-		// check if user is logged in
-		const token = localStorage.getItem('token');
-		if (token) {
-			window.location.href = '/'; //redirect to root URL
-		}
-	})
+
+	// check if user is logged in
+	const token = localStorage.getItem('token');
+	if (token) {
+		window.location.href = '/'; //redirect to root URL
+	}
+
+	const sendOtp = () => {
+		axios.post(
+			'https://sharktodo.smileplease.life/api/sign-up/send-otp/',
+			{ username: username }
+		).then(Response => {
+			setMessage('OTP send successfully :) to your email');
+			// window.location.href = '/signup/verify-otp';
+			setShowOtpPage(true);
+		}).catch(error => {
+			setMessage(JSON.stringify(error.response.data));
+		})
+	}
 
 	const handleLogin = () => {
 		const apiUrl = 'https://sharktodo.smileplease.life/api/profiles/';
@@ -23,20 +37,20 @@ function SignUp() {
 				username: username,
 				email: useremail,
 				password: password
-			}).then(
-				Response => {
-					setMessage('Registration Successful :) ')
-					window.location.href = '/signin';
-				}
+			}).then(Response => {
+				setMessage('Registration Successful :) ')
+				sendOtp();
+			}
 			).catch(error => {
-				setMessage(String(error));
+				setMessage(JSON.stringify(error.response.data));
+				console.log(error.response.data);
 			})
 		} else {
 			setMessage('passwords not match');
 		}
 	};
 
-	return (
+	const signUpForm = (
 		<div className='login'>
 			<h1>SignUp</h1>
 			<div>
@@ -77,6 +91,13 @@ function SignUp() {
 				<p>{message}</p>
 			</div>
 		</div>
+	)
+
+
+	return (
+		<>
+			{showOtpPage ? <EmailVerifyOTP username={username} useremail={useremail} onSendOtp={sendOtp} /> : signUpForm}
+		</>
 	)
 }
 

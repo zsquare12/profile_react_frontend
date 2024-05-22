@@ -30,7 +30,7 @@ function SignIn() {
 			}
 		).catch(error => {
 			console.log(error);
-			setMessage("Failed : please write currect credentials")
+			setMessage(JSON.stringify(error.response.data))
 		})
 
 	};
