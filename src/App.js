@@ -12,6 +12,7 @@ import Header from './components/Shared/Header'
 import Home from './components/Task/Home'
 import SignIn from './components/Login/SignIn'
 import SignUp from './components/Login/SignUp'
+import PasswordReset from './components/Login/PasswordReset';
 
 
 // import './App.css';  // Import the external CSS file
@@ -30,6 +31,7 @@ function App() {
               <Route path="/" exact Component={Home} />
               <Route path="/signin" exact Component={SignIn} />
               <Route path="/signup" exact Component={SignUp} />
+              <Route path="/reset-password" exact Component={PasswordReset} />
             </Routes>
           </main>
         </div>
