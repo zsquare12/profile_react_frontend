@@ -18,7 +18,8 @@ function SignIn() {
 		}
 	}, []);
 
-	const handleLogin = () => {
+	const handleLogin = (e) => {
+		e.preventDefault();
 		const apiUrl = 'https://sharktodo.smileplease.life/api/login/';
 		// const apiUrl = 'https://sharktodo.smileplease.life/api/login/';
 
@@ -42,13 +43,14 @@ function SignIn() {
 	return (
 		<div className='login'>
 			<h1>SignIn</h1>
-			<div>
+			<form onSubmit={handleLogin}>
 				<label>Username</label>
 				<input
 					type="text"
 					value={username}
 					onChange={(e) => setUsername(e.target.value)}
 					className='form-control'
+					required
 				/>
 				<label className='pass-label'>
 					<li>password</li>
@@ -61,9 +63,9 @@ function SignIn() {
 					onChange={(e) => setPassword(e.target.value)}
 					className='form-control'
 				/>
-				<button onClick={handleLogin} className='btn btn-primary'>Submit</button>
+				<button type='submit' className='btn btn-primary'>Submit</button>
 				<p>{message}</p>
-			</div>
+			</form>
 		</div>
 	)
 }

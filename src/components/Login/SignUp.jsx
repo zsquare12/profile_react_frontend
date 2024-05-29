@@ -30,7 +30,8 @@ function SignUp() {
 		})
 	}
 
-	const handleLogin = () => {
+	const handleLogin = (e) => {
+		e.preventDefault();
 		const apiUrl = 'https://sharktodo.smileplease.life/api/profiles/';
 		if (password == repassword) {
 			axios.post(apiUrl, {
@@ -53,7 +54,7 @@ function SignUp() {
 	const signUpForm = (
 		<div className='login'>
 			<h1>SignUp</h1>
-			<div>
+			<form onSubmit={handleLogin}>
 
 				<label>Username</label>
 				<input
@@ -61,6 +62,7 @@ function SignUp() {
 					value={username}
 					onChange={(e) => setUsername(e.target.value)}
 					className='form-control'
+					required
 				/>
 
 				<label>Email</label>
@@ -69,6 +71,7 @@ function SignUp() {
 					value={useremail}
 					onChange={(e) => setUseremail(e.target.value)}
 					className='form-control'
+					required
 				/>
 
 				<label>password</label>
@@ -77,6 +80,7 @@ function SignUp() {
 					value={password}
 					onChange={(e) => setPassword(e.target.value)}
 					className='form-control'
+					required
 				/>
 
 				<label>re-password</label>
@@ -85,11 +89,12 @@ function SignUp() {
 					value={repassword}
 					onChange={(e) => setRepassword(e.target.value)}
 					className='form-control'
+					required
 				/>
 
-				<button onClick={handleLogin} className='btn btn-primary'>Submit</button>
+				<button type='submit' className='btn btn-primary mt-2'>Submit</button>
 				<p>{message}</p>
-			</div>
+			</form>
 		</div>
 	)
 

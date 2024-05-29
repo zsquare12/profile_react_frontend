@@ -140,7 +140,7 @@ nav>div>ul>li {
   /* border: thin solid red; */
 }
 
-.login>div {
+.login>form {
   display: flex;
   flex-direction: column;
   width: 100%;
