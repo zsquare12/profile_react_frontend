@@ -22,6 +22,10 @@ function useFetchData(apiUrl) {
             }).catch((error) => {
                 setError(error);
                 setLoading(false);
+                const token = localStorage.getItem('token');
+                if (token) {
+                    localStorage.removeItem('token');
+                }
             });
         } else {
             setLoading(false);
