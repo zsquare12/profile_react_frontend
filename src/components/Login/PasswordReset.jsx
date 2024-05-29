@@ -65,6 +65,10 @@ const PasswordReset = () => {
                             required
                         />
                     </div>
+                    <button type="button" className="btn btn-primary btn-block m-2" onClick={handleSendOtp} disabled={false}>
+                        {otpSent ? "re-send OTP" : "send OTP"}
+                    </button>
+                    <hr></hr>
                     <div className="form-group">
                         <label htmlFor="otp">Enter OTP</label>
                         <input
@@ -77,9 +81,6 @@ const PasswordReset = () => {
                             disabled={!otpSent}
                         />
                     </div>
-                    <button type="button" className="btn btn-primary btn-block m2" onClick={handleSendOtp} disabled={false}>
-                        {otpSent ? "re-send OTP" : "send OTP"}
-                    </button>
                     <button type="submit" className="btn btn-success btn-block m-2" disabled={!otpSent}>
                         Verify OTP
                     </button>
@@ -116,7 +117,7 @@ const PasswordReset = () => {
                             required
                         />
                     </div>
-                    <button type="submit" className="btn btn-primary btn-block m2">
+                    <button type="submit" className="btn btn-primary btn-block m-2">
                         Reset Password
                     </button>
                 </form>

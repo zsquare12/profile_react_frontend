@@ -148,3 +148,11 @@ nav>div>ul>li {
 .login>div>input {
   margin-bottom: 10px;
 }
+
+.pass-label {
+  /* border: thin solid red; */
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 5px;
+}

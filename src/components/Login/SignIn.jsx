@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+import {
+	Link
+} from 'react-router-dom';
+
 function SignIn() {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
@@ -46,7 +50,11 @@ function SignIn() {
 					onChange={(e) => setUsername(e.target.value)}
 					className='form-control'
 				/>
-				<label>password</label>
+				<label className='pass-label'>
+					<li>password</li>
+					<li><Link to='/reset-password'>Forget-password</Link></li>
+				</label>
+				
 				<input
 					type="password"
 					value={password}
