@@ -32,6 +32,10 @@ function Header() {
 			<li><Link to='/signin'>SignIn</Link></li>
 			<li><Link to='/signup'>SignUp</Link></li>
 		</>
+		const token = localStorage.getItem('token');
+		if (token) {
+			localStorage.removeItem('token');
+		}
 	}
 
 

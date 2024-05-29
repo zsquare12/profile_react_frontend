@@ -63,7 +63,7 @@ function SignIn() {
 					onChange={(e) => setPassword(e.target.value)}
 					className='form-control'
 				/>
-				<button type='submit' className='btn btn-primary'>Submit</button>
+				<button type='submit' className='btn btn-primary mt-2'>Submit</button>
 				<p>{message}</p>
 			</form>
 		</div>
