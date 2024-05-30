@@ -66,6 +66,9 @@ function SignIn() {
 				<button type='submit' className='btn btn-primary mt-2'>Submit</button>
 				<p>{message}</p>
 			</form>
+			<div>
+				<Link to='/signup'>Create an account</Link>
+			</div>
 		</div>
 	)
 }
